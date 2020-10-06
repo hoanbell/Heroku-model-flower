@@ -7,6 +7,7 @@ import numpy as np
 import heapq
 import cv2
 import os
+from app import app
 os.sys("pip install -r requirements.txt")
 
 
@@ -61,7 +62,7 @@ def topacc(num, imagepath):
 #     img_path = 'test.jpg'
 #     return img_path
 
-app = Flask(__name__)
+
 @app.route('/', methods=['GET', 'POST'])
 def uploadfile():
     file = request.files['image'].read()
