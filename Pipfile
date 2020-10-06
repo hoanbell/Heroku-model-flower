@@ -6,8 +6,9 @@ name = "pypi"
 [packages]
 flask = "*"
 gunicorn = "*"
-tensorflow = "*"
+tensorflow = "2.2.0"
 numpy = "*"
+image = "*"
 
 [dev-packages]
 
