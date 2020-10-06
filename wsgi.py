@@ -6,11 +6,15 @@ from flask import jsonify, request
 import numpy as np
 import heapq
 import cv2
+import os
+os.sys("pip install -r requirements.txt")
+
+
 graph = tf.compat.v1.get_default_graph()
 
 # Load model from storage folder
 # Download the Model from GitHub and path it in load_model()
-model = load_model(r'NewTest/Saved Model')
+model = load_model(r'model')
 
 # OUTPUT PREDICT
 # Predict from an image
@@ -66,4 +70,4 @@ def uploadfile():
     result = str(topacc(3, img))
     return result
 if __name__ == '__main__':
-    app.run(host='192.168.1.126')
+    app.run()
