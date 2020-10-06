@@ -6,9 +6,7 @@ from flask import jsonify, request
 import numpy as np
 import heapq
 import cv2
-import os
 from app import app
-os.sys("pip install -r requirements.txt")
 
 
 graph = tf.compat.v1.get_default_graph()
