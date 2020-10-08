@@ -9,9 +9,13 @@ import cv2
 
 app = Flask(__name__)
 
-model = load_model(r'model')
 
-categories = ['alstroemeria', 'anemone', 'anthurium', 'arumlily', 'baloon flower', 'bellisdaisy', 'birdofparadise',
+
+
+def topacc(num, imagepath):
+    model = load_model(r'model')
+
+    categories = ['alstroemeria', 'anemone', 'anthurium', 'arumlily', 'baloon flower', 'bellisdaisy', 'birdofparadise',
               'bouvardia', 'cherryblossom', 'coneflower',
               'cornflower', 'cypress', 'daffodil', 'dahlia', 'daisy', 'dandelion', 'dandelion',
               'edelweiss flower', 'foxglove', 'gazania',
@@ -21,10 +25,6 @@ categories = ['alstroemeria', 'anemone', 'anthurium', 'arumlily', 'baloon flower
               'pansy', 'plumeria',
               'poinsettia', 'protea', 'ranunculus', 'rose', 'spearthistle', 'sunflower', 'tansy', 'tulip',
               'waterlilies', 'whiteclover', 'yarrow']
-
-
-def topacc(num, imagepath):
-
     x = np.expand_dims(imagepath, axis=0)
     imagepath = cv2.cvtColor(imagepath, cv2.COLOR_BGR2RGB)
     imagepath = cv2.resize(imagepath, (224, 224)).astype('float16')
