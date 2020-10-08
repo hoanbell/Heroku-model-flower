@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 
 
-def topacc(num, imagepath):
+def topacc(num=3, imagepath):
     model = load_model(r'model')
 
     categories = ('alstroemeria', 'anemone', 'anthurium', 'arumlily', 'baloon flower', 'bellisdaisy', 'birdofparadise',
@@ -38,7 +38,11 @@ def uploadfile():
     file = request.files['image'].read()
     npimg = np.fromstring(file, np.uint8)
     img = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
-    result = str(topacc(3, img))
+    try:
+        result = str(topacc(3, img))
+        print(result)
+    except:
+        print('failed')
     return "DONE:DONE"
 
 
