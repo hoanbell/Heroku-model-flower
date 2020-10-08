@@ -8,15 +8,9 @@ import heapq
 import cv2
 
 app = Flask(__name__)
-graph = tf.compat.v1.get_default_graph()
 
-# Load model from storage folder
-# Download the Model from GitHub and path it in load_model()
 model = load_model(r'model')
 
-# OUTPUT PREDICT
-# Predict from an image
-# 51 Categories
 categories = ['alstroemeria', 'anemone', 'anthurium', 'arumlily', 'baloon flower', 'bellisdaisy', 'birdofparadise',
               'bouvardia', 'cherryblossom', 'coneflower',
               'cornflower', 'cypress', 'daffodil', 'dahlia', 'daisy', 'dandelion', 'dandelion',
@@ -30,9 +24,7 @@ categories = ['alstroemeria', 'anemone', 'anthurium', 'arumlily', 'baloon flower
 
 
 def topacc(num, imagepath):
-    # Num is the Number of the highest predicted, NOT larger than 5
-    # img = image.load_img(imagepath, target_size=(224, 224))
-    # x = image.img_to_array(imagepath)
+
     x = np.expand_dims(imagepath, axis=0)
     imagepath = cv2.cvtColor(imagepath, cv2.COLOR_BGR2RGB)
     imagepath = cv2.resize(imagepath, (224, 224)).astype('float16')
@@ -49,17 +41,6 @@ def topacc(num, imagepath):
     return hhshhhh
 
 
-# Input is a PATH of an image or a IMAGE_ULR
-# def inputcall(inputin):
-#     # print(inputin)
-#     cap = cv2.VideoCapture(inputin)
-#     if cap.isOpened():
-#         _, img = cap.read()
-#         cv2.imwrite('test.jpg', img)
-#     img_path = 'test.jpg'
-#     return img_path
-
-
 @app.route('/', methods=['GET', 'POST'])
 def uploadfile():
     file = request.files['image'].read()
@@ -74,7 +55,3 @@ def uploadfile():
 @app.route('/hello')
 def hello_world():
     return "<h1>Welcome to Summoner's Drift</h1>"
-
-
-# if __name__ == '__main__':
-#     app.run(debug=1, host='0.0.0.0')
