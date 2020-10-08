@@ -30,7 +30,6 @@ def topacc(imagepath):
     imagepath = cv2.resize(imagepath, (224, 224)).astype('float16')
     preds = model.predict(np.expand_dims(imagepath, axis=0))
     preds = np.array(preds).mean(axis=0)
-    print(preds)
     return preds
 
 
@@ -41,7 +40,7 @@ def uploadfile():
     img = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
     try:
         result = str(topacc(img))
-        print(result)
+        return (result)
     except:
         print('failed')
     return "DONE:DONE"
