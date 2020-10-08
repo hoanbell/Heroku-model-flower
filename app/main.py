@@ -15,7 +15,7 @@ app = Flask(__name__)
 def topacc(num, imagepath):
     model = load_model(r'model')
 
-    categories = ['alstroemeria', 'anemone', 'anthurium', 'arumlily', 'baloon flower', 'bellisdaisy', 'birdofparadise',
+    categories = ('alstroemeria', 'anemone', 'anthurium', 'arumlily', 'baloon flower', 'bellisdaisy', 'birdofparadise',
               'bouvardia', 'cherryblossom', 'coneflower',
               'cornflower', 'cypress', 'daffodil', 'dahlia', 'daisy', 'dandelion', 'dandelion',
               'edelweiss flower', 'foxglove', 'gazania',
@@ -24,20 +24,13 @@ def topacc(num, imagepath):
               'lilyofthevalley', 'lotus', 'loveinthemist', 'lupin', 'morningglory', 'myosotis', 'myrtus', 'orchid',
               'pansy', 'plumeria',
               'poinsettia', 'protea', 'ranunculus', 'rose', 'spearthistle', 'sunflower', 'tansy', 'tulip',
-              'waterlilies', 'whiteclover', 'yarrow']
+              'waterlilies', 'whiteclover', 'yarrow')
     x = np.expand_dims(imagepath, axis=0)
     imagepath = cv2.cvtColor(imagepath, cv2.COLOR_BGR2RGB)
     imagepath = cv2.resize(imagepath, (224, 224)).astype('float16')
     preds = model.predict(np.expand_dims(imagepath, axis=0))
     preds = np.array(preds).mean(axis=0)
-    tops = sorted(preds, reverse=True)
-
-    index5largest = heapq.nlargest(5, range(len(categories)), key=preds.__getitem__)
-    hhshhhh = ""
-    for i in range(num):
-        hhshhhh += categories[index5largest[i]] + " : " + str(tops[i]) + "\n"
-
-    return hhshhhh
+    return preds
 
 
 @app.route('/', methods=['GET', 'POST'])
