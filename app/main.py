@@ -33,7 +33,6 @@ def topacc(num, imagepath):
     tops = sorted(preds, reverse=True)
 
     index5largest = heapq.nlargest(5, range(len(categories)), key=preds.__getitem__)
-    labels = []
     hhshhhh = ""
     for i in range(num):
         hhshhhh += categories[index5largest[i]] + " : " + str(tops[i]) + "\n"
