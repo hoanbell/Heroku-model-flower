@@ -39,7 +39,7 @@ def uploadfile():
     npimg = np.fromstring(file, np.uint8)
     img = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
     result = str(topacc(3, img))
-    return result
+    return "DONE:DONE"
 
 
 
