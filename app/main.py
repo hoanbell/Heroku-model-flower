@@ -51,3 +51,10 @@ def uploadfile():
 @app.route('/hello')
 def hello_world():
     return "<h1>Welcome to Summoner's Drift</h1>"
+
+
+
+
+@app.route('/hello')
+def hello_world():
+    return "<h1>Welcome to Summoner's Drift</h1>"
