@@ -48,6 +48,10 @@ def uploadfile():
     img = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
     result = str(topacc(3, img))
     return result
+  
+@app.route('/hello')
+def hello_world():
+    return 'Ohayo Gozaimasu!
 
 if __name__ == '__main__':
     app.run(host='192.168.1.126', port=8889)
