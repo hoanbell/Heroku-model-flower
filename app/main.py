@@ -51,7 +51,7 @@ def uploadfile():
   
 @app.route('/hello')
 def hello_world():
-    return 'Ohayo Gozaimasu!
+    return 'Ohayo Gozaimasu!'
 
 if __name__ == '__main__':
     app.run(host='192.168.1.126', port=8889)
