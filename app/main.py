@@ -8,6 +8,7 @@ import heapq
 import cv2
 import wikipediaapi
 
+model = load_model(r'E:\AI Intern\Flowers50\Saved Model')
 categories = ['Alstroemeria', 'Anemone', 'Anthurium', 'Zantedeschia aethiopica', 'Platycodon', 'Asteraceae', 'Strelitzia reginae',
               'Bouvardia', 'Cherryblossom', 'Coneflower',
                   'Cornflower', 'Cypress', 'Daffodil', 'Dahlia', 'Bellis perennis', 'Dandelion', 'Dandelion',
