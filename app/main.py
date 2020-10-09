@@ -27,13 +27,13 @@ def topacc(num, imagepath):
     imagepath = cv2.cvtColor(imagepath, cv2.COLOR_BGR2RGB)
     imagepath = cv2.resize(imagepath, (224, 224)).astype('float16')
     preds = model.predict(np.expand_dims(imagepath, axis=0))
-    preds = np.array(preds).mean(axis=0)
-    tops = sorted(preds, reverse=True)
+#     preds = np.array(preds).mean(axis=0)
+#     tops = sorted(preds, reverse=True)
     origin_dict = {'result': {
         'topacc1': {
-            'flowername': None,
-            'content': None,
-            'wikiurl': None
+            'flowername': one,
+            'content': two,
+            'wikiurl': three
         }
     }
     }
