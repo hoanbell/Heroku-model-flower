@@ -49,7 +49,8 @@ categories = ['Alstroemeria', 'Anemone', 'Anthurium', 'Zantedeschia aethiopica',
 #     img = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
 #     result = str(topacc(3, img))
 #     return result
-  
+
+app = Flask(__name__)
 @app.route('/hello')
 def hello_world():
     return 'Ohayo Gozaimasu!'
