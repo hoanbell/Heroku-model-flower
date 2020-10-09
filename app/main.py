@@ -31,9 +31,9 @@ def topacc(num, imagepath):
 #     tops = sorted(preds, reverse=True)
     origin_dict = {'result': {
         'topacc1': {
-            'flowername': one,
-            'content': two,
-            'wikiurl': three
+            'flowername': 'one',
+            'content': 'two',
+            'wikiurl': 'three'
         }
     }
     }
