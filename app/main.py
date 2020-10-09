@@ -1,12 +1,12 @@
-from tensorflow.python.keras.preprocessing import image
+# from tensorflow.python.keras.preprocessing import image
 from tensorflow.python.keras.models import load_model
 from flask import Flask
-from flask import jsonify, request
-import tensorflow as tf
-import numpy as np
-import heapq
-import cv2
-import wikipediaapi
+# from flask import jsonify, request
+# import tensorflow as tf
+# import numpy as np
+# import heapq
+# import cv2
+# import wikipediaapi
 
 model = load_model(r'model')
 categories = ['Alstroemeria', 'Anemone', 'Anthurium', 'Zantedeschia aethiopica', 'Platycodon', 'Asteraceae', 'Strelitzia reginae',
